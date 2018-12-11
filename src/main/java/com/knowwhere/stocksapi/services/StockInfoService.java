@@ -4,7 +4,6 @@ import com.knowwhere.stocksapi.exceptions.FieldNotFoundException;
 import com.knowwhere.stocksapi.models.StockInfo;
 import com.knowwhere.stocksapi.models.StockType;
 import com.knowwhere.stocksapi.repositories.StockInfoRepository;
-import jdk.internal.org.objectweb.asm.tree.FieldNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
