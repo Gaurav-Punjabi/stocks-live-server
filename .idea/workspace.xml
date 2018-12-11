@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/Desktop/Coding/Projects/Android (Java)/Tailor App" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Coding/Projects/Android(Kotlin Projects)/AppBlocker" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Coding/Projects/Android(Kotlin Projects)/countify-app" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Coding/Projects/Android(Kotlin Projects)/countify-app copy" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Coding/Projects/Other Projects/sl-rfid/Android App" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/Zebra_RFD8500_Mobile-1.2.3.26" value="PREVIEW" />
+        <entry key="$USER_HOME$/Desktop/sl-rfid/Android App" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/KJSCELIVE-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/Todo-App-master" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/Zebra_RFD8500_Mobile-1.2.3.26/Zebra_RFD8500_Mobile-1.2.3.26" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/Zebra_RFID_Mobile_API-1.0.3.22" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/appblocker" value="PREVIEW" />
+        <entry key="$USER_HOME$/Downloads/stickers-master/Android" value="PREVIEW" />
+        <entry key="$USER_HOME$/Projects/rfid/Android App/countify-app" value="PREVIEW" />
+        <entry key="$USER_HOME$/Projects/swaninaryan/stickers-master/Android" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StocksApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="stocksapi" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.knowwhere.stocksapi.StocksApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
