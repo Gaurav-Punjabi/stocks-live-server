@@ -15,12 +15,12 @@ public class StockCall
       @Column(name = "id")
       private int id;
 
-//      @JsonIgnore
+      @JsonIgnore
       @ManyToOne(cascade = CascadeType.ALL)
       @JoinColumn(name = "StockId", referencedColumnName = "id")
       private StockInfo stockInfo;
 
-//      @JsonIgnore
+      @JsonIgnore
       @ManyToOne(cascade = CascadeType.ALL)
       @JoinColumn(name = "TypeId", referencedColumnName = "id")
       private CallType callType;
