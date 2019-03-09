@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 public class WebScrapperService {
       private static final String TABLE_REGEX = "<html.+?>.*<table.*fullMcxPriceTable.*?>(.*?)<\\/table>.*?<\\/html>";
       private static final String COMMODITY_REGEX = "<tr.*?> *<td.*?>([\\w\\d]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.]*?)<\\/td> *<td.*?>([\\w\\d\\-\\.\\:]*?)<\\/td> *";
-      private static final String COMMODITY_SOURCE_URL = "http://market.mcxdata.in/";
+      private static final String COMMODITY_SOURCE_URL = "https://market.mcxdata.in/";
 
       private String getSourceCode(final String address) {
             try {
@@ -56,7 +56,6 @@ public class WebScrapperService {
             while (matcher.find()) {
                   String name = matcher.group(1);
                   Double price = Double.parseDouble(matcher.group(2));
-//                  String change = matcher.group(3);
 //                  String changeInPercentage = matcher.group(4);
 //                  String open = matcher.group(5);
 //                  String high = matcher.group(6);

@@ -16,6 +16,7 @@ public class CommodityService {
       @Autowired
       WebScrapperService webScrapperService;
 
+
       public List<Commodity> getAllCommodities() {
             return this.webScrapperService.getCommodities();
       }
@@ -53,7 +54,6 @@ public class CommodityService {
                               updatedCommodities.removeAll(oldCommodities);
 
                               if(updatedCommodities.size() > 0) {
-
                                     this.user.notifyUpdatedRates(updatedCommodities);
                                     this.commoditySet = commodities;
                               }

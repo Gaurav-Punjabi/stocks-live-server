@@ -8,6 +8,7 @@ import com.knowwhere.stocksapi.models.StockInfo;
 import com.knowwhere.stocksapi.models.StockType;
 import com.knowwhere.stocksapi.models.stock_call.CallWrapper;
 import com.knowwhere.stocksapi.models.stock_call.StockCallResponse;
+import com.knowwhere.stocksapi.services.CommodityService;
 import com.knowwhere.stocksapi.services.StockCallService;
 import com.knowwhere.stocksapi.services.StockInfoService;
 import jdk.nashorn.internal.codegen.CompilerConstants;
@@ -24,48 +25,50 @@ import java.util.List;
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(BASE_URL + "/call")
 public class StockCallController {
-
-      @Autowired
-      private StockInfoService stockInfoService;
 
       @Autowired
       private StockCallService stockCallService;
 
       @GetMapping("/getAll")
-      public ResponseEntity<?> openCallConnection() {
+      public ResponseEntity<?> getAll() {
             List<StockCall> stockCalls = this.stockCallService.getAllStockCalls();
             System.out.println("stockCalls = " + stockCalls);
             List<StockCallResponse> stockCallResponses = new ArrayList<>();
-            for(StockCall stockCall : stockCalls) {
+            for (StockCall stockCall : stockCalls) {
                   StockCallResponse stockCallResponse = new StockCallResponse(stockCall.getStockInfo().getName(),
-                                                                              stockCall.getCallType().getName(),
-                                                                              stockCall.getPrice(),
-                                                                              stockCall.getTarget1(),
-                                                                              stockCall.getTarget2(),
-                                                                              stockCall.getTarget3(),
-                                                                              stockCall.getStopLoss(),
-                                                                              stockCall.isCompleted());
+                          stockCall.getCallType().getName(),
+                          stockCall.getPrice(),
+                          stockCall.getTarget1(),
+                          stockCall.getTarget2(),
+                          stockCall.getTarget3(),
+                          stockCall.getStopLoss(),
+                          stockCall.isCompleted());
                   stockCallResponses.add(stockCallResponse);
             }
             return ResponseEntity.ok(stockCallResponses);
       }
 
       @PostMapping("/add")
-      public ResponseEntity<?> add(@RequestBody CallWrapper callWrapper) throws FieldNotFoundException {
-            if(callWrapper.getTarget1() == null && callWrapper.getTarget2()== null && callWrapper.getTarget3() == null) {
+      public ResponseEntity<?> add(@RequestBody CallWrapper callWrapper) {
+            if (callWrapper.getTarget1() == null && callWrapper.getTarget2() == null && callWrapper.getTarget3() == null) {
                   return ResponseEntity.unprocessableEntity()
                           .body("At least one target must be provided to add a stock call");
             }
-            StockCall stockCall = this.stockCallService.add(callWrapper.getName(),
-                                                            callWrapper.getCallType(),
-                                                            callWrapper.getPrice(),
-                                                            callWrapper.getStopLoss(),
-                                                            (callWrapper.getTarget1() == null) ? 0 : callWrapper.getTarget1(),
-                                                            (callWrapper.getTarget2() == null) ? 0 : callWrapper.getTarget2(),
-                                                            (callWrapper.getTarget3() == null) ? 0 : callWrapper.getTarget3());
-            System.out.println("stockCall added = " + stockCall);
-            return ResponseEntity.ok(stockCall);
+            try {
+                  StockCall stockCall = this.stockCallService.add(callWrapper.getName(),
+                          callWrapper.getCallType(),
+                          callWrapper.getPrice(),
+                          callWrapper.getStopLoss(),
+                          (callWrapper.getTarget1() == null) ? 0 : callWrapper.getTarget1(),
+                          (callWrapper.getTarget2() == null) ? 0 : callWrapper.getTarget2(),
+                          (callWrapper.getTarget3() == null) ? 0 : callWrapper.getTarget3());
+                  System.out.println("stockCall added = " + stockCall);
+                  return ResponseEntity.ok(stockCall);
+            } catch (FieldNotFoundException fnfe) {
+                  return ResponseEntity.noContent().build();
+            }
       }
 }

@@ -7,15 +7,15 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 @Configuration
 public class SentryConfig {
-      @Bean
-      public HandlerExceptionResolver sentryExceptionResolver() {
-            return new io.sentry.spring.SentryExceptionResolver();
-      }
-
-      @Bean
-      public ServletContextInitializer sentryServletContextInitializer() {
-            return new io.sentry.spring.SentryServletContextInitializer();
-      }
+//      @Bean
+//      public HandlerExceptionResolver sentryExceptionResolver() {
+//            return new io.sentry.spring.SentryExceptionResolver();
+//      }
+//
+//      @Bean
+//      public ServletContextInitializer sentryServletContextInitializer() {
+//            return new io.sentry.spring.SentryServletContextInitializer();
+//      }
 
 
 }
