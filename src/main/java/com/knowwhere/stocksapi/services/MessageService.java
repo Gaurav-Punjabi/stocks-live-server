@@ -12,11 +12,12 @@ import java.net.URLEncoder;
 @Service
 public class MessageService {
       public void sendMessage(String phoneNumber, String text) {
-            String authkey = "265101AhglQYyXR5c76ad84";
+            String authkey = "265094Ax4iz2OyViR5c76a738";
             //Multiple mobiles numbers separated by comma
-            String mobiles = phoneNumber;
+            String mobiles = "91" + phoneNumber;
+            System.out.println("mobiles = " + mobiles);
             //Sender ID,While using route4 sender id should be 6 characters long.
-            String senderId = "STKSLV";
+            String senderId = "STOCKS";
             //Your message to send, Add URL encoding here.
             String message = text;
             //define route

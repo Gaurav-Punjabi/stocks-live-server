@@ -37,7 +37,7 @@ public class AuthService {
 
             // Sending the otp to the user
             String otp = this.generateOtp();
-            this.messageService.sendMessage(otp, "Your otp is : " + otp);
+            this.messageService.sendMessage(phoneNumber, "Your otp is : " + otp);
 
             users.setOtp(otp);
             this.usersRepository.save(users);
@@ -49,7 +49,7 @@ public class AuthService {
       public boolean verifyOtp(String phoneNumber, String otp) throws IllegalArgumentException, FieldNotFoundException {
             if(phoneNumber == null || !phoneNumber.matches("^\\d{10}$"))
                   throw new IllegalArgumentException("Please provide a valid phone number.");
-            if(otp == null || !otp.matches("^\\d{10}$"))
+            if(otp == null || !otp.matches("^\\d{6}$"))
                   throw new IllegalArgumentException("Please provide a valid otp");
             Users users = this.usersRepository.findByPhoneNumber(phoneNumber).orElse(null);
             if(users == null)

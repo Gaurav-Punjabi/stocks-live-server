@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 
+import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
+
 @RestController
-@RequestMapping("/auth/")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(BASE_URL + "/auth/")
 public class AuthController {
       @Autowired
       private AuthService authService;
