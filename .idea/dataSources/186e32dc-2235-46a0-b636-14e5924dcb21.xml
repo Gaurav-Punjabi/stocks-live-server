@@ -1236,26 +1236,31 @@
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="305" parent="265" name="email">
+    <column id="305" parent="265" name="otp">
+      <Position>16</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="306" parent="265" name="email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="306" parent="265" name="password">
+    <index id="307" parent="265" name="password">
       <ColNames>password</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="307" parent="265" name="PRIMARY">
+    <key id="308" parent="265" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="308" parent="265" name="email">
+    <key id="309" parent="265" name="email">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <key id="309" parent="265" name="password">
+    <key id="310" parent="265" name="password">
       <ColNames>password</ColNames>
       <UnderlyingIndexName>password</UnderlyingIndexName>
     </key>

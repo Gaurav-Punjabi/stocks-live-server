@@ -23,6 +23,9 @@ public class Users extends BaseModel {
       @Column(name = "refresh_token")
       private String refreshToken;
 
+      @Column(name = "otp")
+      private String otp;
+
       @Column(name = "password")
       private String password;
 
@@ -32,12 +35,15 @@ public class Users extends BaseModel {
       @Column(name = "is_admin")
       private boolean isAdmin;
 
+
       public Users(String email, String password, String phoneNumber, boolean isAdmin) {
             this.email = email;
             this.password = password;
             this.isAdmin = isAdmin;
             this.phoneNumber = phoneNumber;
       }
+
+      public Users() {}
 
       public boolean isAdmin() {
             return isAdmin;
@@ -101,6 +107,14 @@ public class Users extends BaseModel {
 
       public void setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
+      }
+
+      public String getOtp() {
+            return otp;
+      }
+
+      public void setOtp(String otp) {
+            this.otp = otp;
       }
 
       @Override
