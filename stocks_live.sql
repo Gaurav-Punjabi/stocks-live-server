@@ -120,8 +120,8 @@ INSERT INTO `StockType` (`id`, `name`) VALUES
 
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `token` varchar(255) DEFAULT NULL
+  `email` varchar(255) DEFAULT NULL,
+  `notificationToken` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
