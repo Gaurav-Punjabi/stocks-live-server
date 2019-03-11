@@ -15,11 +15,6 @@ import java.util.Objects;
 
 public class BaseModel {
 
-      @Temporal(TemporalType.TIMESTAMP)
-      @CreationTimestamp
-      @Column(name = "createdAt", columnDefinition = "TIMESTAMP DEFAULT CURRENT TIMESTAMP")
-      private Date createdAt;
-
       @JsonIgnore
       @Basic
       @Column(name = "createdBy")
@@ -37,9 +32,6 @@ public class BaseModel {
       @Column(name = "updatedAt")
       private Date updatedAt;
 
-      public Date getCreatedAt() {
-            return createdAt;
-      }
 
       public Long getCreatedBy() {
             return createdBy;
@@ -51,10 +43,6 @@ public class BaseModel {
 
       public Date getUpdatedAt() {
             return updatedAt;
-      }
-
-      public void setCreatedAt(Date createdAt) {
-            this.createdAt = createdAt;
       }
 
       public void setCreatedBy(Long createdBy) {
@@ -75,20 +63,18 @@ public class BaseModel {
             if (o == null || getClass() != o.getClass()) return false;
             BaseModel baseModel = (BaseModel) o;
             return deleted == baseModel.deleted &&
-                    Objects.equals(createdAt, baseModel.createdAt) &&
                     Objects.equals(createdBy, baseModel.createdBy) &&
                     Objects.equals(updatedAt, baseModel.updatedAt);
       }
 
       @Override
       public int hashCode() {
-            return Objects.hash(createdAt, createdBy, deleted, updatedAt);
+            return Objects.hash(createdBy, deleted, updatedAt);
       }
 
       @Override
       public String toString() {
             return "BaseModel{" +
-                    "createdAt=" + createdAt +
                     ", createdBy=" + createdBy +
                     ", deleted=" + deleted +
                     ", updatedAt=" + updatedAt +

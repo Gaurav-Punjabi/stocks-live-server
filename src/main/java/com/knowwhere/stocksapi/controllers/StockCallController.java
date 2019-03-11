@@ -20,6 +20,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +51,7 @@ public class StockCallController {
                           stockCall.getTarget2(),
                           stockCall.getTarget3(),
                           stockCall.getStopLoss(),
+                          new SimpleDateFormat("dd-MM-yyyy").format(stockCall.getCreatedAt()),
                           stockCall.isCompleted());
                   stockCallResponses.add(stockCallResponse);
             }

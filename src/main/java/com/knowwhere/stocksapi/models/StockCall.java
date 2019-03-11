@@ -1,9 +1,11 @@
 package com.knowwhere.stocksapi.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +25,9 @@ public class StockCall extends BaseModel implements Comparable<String>{
       @ManyToOne(cascade = CascadeType.ALL)
       @JoinColumn(name = "TypeId", referencedColumnName = "id")
       private CallType callType;
+
+      @Column(name = "createdAt")
+      private Date createdAt;
 
       @Column(name = "price")
       private double price;
@@ -132,6 +137,15 @@ public class StockCall extends BaseModel implements Comparable<String>{
 
       public boolean isCompleted() {
             return completed;
+      }
+
+
+      public Date getCreatedAt() {
+            return createdAt;
+      }
+
+      public void setCreatedAt(Date createdAt) {
+            this.createdAt = createdAt;
       }
 
       @Override
