@@ -53,9 +53,6 @@ public class UsersService {
 
             try {
                   String hashedPassword = this.hashService.stringToSha1(password);
-                  // Checking if the password is already present or not
-                  if(this.usersRepository.findByPassword(hashedPassword).isPresent())
-                        throw new NonUniqueFieldException("Given password is already taken.");
 
                   Users admin = new Users(email, hashedPassword, phoneNumber, isAdmin);
                   return this.usersRepository.save(admin);
@@ -74,6 +71,14 @@ public class UsersService {
                                 String password,
                                 String phoneNumber) throws IllegalArgumentException, NonUniqueFieldException {
             return this.store(email, password, phoneNumber, false);
+      }
+
+      public void pushToken(String phoneNumber, String token) {
+            Users users = this.usersRepository.findByPhoneNumber(phoneNumber).orElse(null);
+            if(users != null) {
+                  users.setNotificationToken(token);
+                  this.usersRepository.save(users);
+            }
       }
 
       public List<Users> getAll() {

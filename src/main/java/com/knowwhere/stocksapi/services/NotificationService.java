@@ -1,98 +1,64 @@
 package com.knowwhere.stocksapi.services;
 
+import com.google.gson.Gson;
 import com.knowwhere.stocksapi.controllers.CommodityController;
-import com.knowwhere.stocksapi.models.Commodity;
-import com.knowwhere.stocksapi.models.Notification;
-import com.knowwhere.stocksapi.models.StockCall;
-import com.knowwhere.stocksapi.models.StockInfo;
+import com.knowwhere.stocksapi.models.*;
+import com.knowwhere.stocksapi.models.notification.PushNotification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class NotificationService
-        extends Thread {
+@Service
+public class NotificationService {
       @Autowired
-      private StockCallService  stockCallService;
+      private UsersService usersService;
 
-      @Autowired
-      private StockInfoService stockInfoService;
+      public void pushNotificationToAll(String title, String message) {
+            try {
+                  HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://exp.host/--/api/v2/push/send").openConnection();
 
-      private CommodityController commodityController;
-      private List<Commodity> commodities;
+                  // Setting the headers
+                  httpURLConnection.setRequestMethod("POST");
 
-      public NotificationService(CommodityController commodityController,
-                                 List<Commodity> commodities) {
-            this.commodityController = commodityController;
-            this.commodities = commodities;
-      }
+                  httpURLConnection.setRequestProperty("Host", "expo.host");
+                  httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                  httpURLConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+                  httpURLConnection.setRequestProperty("Accept", "application/json");
 
-      @Override
-      public void run() {
-            for (Commodity commodity : this.commodities) {
-                  Optional<StockInfo> optionalStockInfo = this.stockInfoService.getByName(commodity.getName());
-                  if (optionalStockInfo.isPresent()) {
-                        int id = optionalStockInfo.get().getId();
-                        List<StockCall> stockCalls = this.stockCallService.getAllByStockId(id);
-                        for (StockCall stockCall : stockCalls) {
-                              String condition = "";
-                              switch (stockCall.getCallType().getName()) {
-                                    case "BUY":
-                                          if (stockCall.getStopLoss() >= commodity.getPrice()) {
-                                                condition = "Stop Loss has reached.";
-                                          } else if (stockCall.getTarget1() != 0 &&
-                                                  stockCall.getTarget1() <= commodity.getPrice()) {
-                                                condition = "Target 1 has been completed.";
-                                          } else if (stockCall.getTarget2() != 0 &&
-                                                  stockCall.getTarget2() <= commodity.getPrice()) {
-                                                condition = "Target 2 has been completed.";
-                                          } else if (stockCall.getTarget3() != 0 &&
-                                                  stockCall.getTarget3() <= commodity.getPrice()) {
-                                                condition = "Target 3 has been completed.";
-                                          } else {
-                                                break;
-                                          }
-                                          this.callCompleted(stockCall, condition);
-                                          break;
+                  httpURLConnection.setDoOutput(true);
+                  httpURLConnection.setDoInput(true);
 
-                                    case "SELL":
-                                          if (stockCall.getStopLoss() <= commodity.getPrice()) {
-                                                condition = "Stop Loss has reached.";
-                                          } else if (stockCall.getTarget1() != 0 &&
-                                                  stockCall.getTarget1() >= commodity.getPrice()) {
-                                                condition = "Target 1 has been completed.";
-                                          } else if (stockCall.getTarget2() != 0 &&
-                                                  stockCall.getTarget2() >= commodity.getPrice()) {
-                                                condition = "Target 2 has been completed.";
-                                          } else if (stockCall.getTarget3() != 0 &&
-                                                  stockCall.getTarget3() >= commodity.getPrice()) {
-                                                condition = "Target 3 has been completed.";
-                                          } else
-                                                break;
-                                          this.callCompleted(stockCall, condition);
-                                          break;
-                              }
+
+                  List<PushNotification> tokens = new ArrayList<>();
+                  for(Users users : this.usersService.getAll()) {
+                        if(users.getNotificationToken() != null || !users.getNotificationToken().equals("")) {
+                              tokens.add(new PushNotification(users.getNotificationToken(), "default", message, title));
                         }
                   }
+
+                  String payload = new Gson().toJson(tokens);
+                  System.out.println("payload = " + payload);
+
+                  httpURLConnection.getOutputStream().write(payload.getBytes());
+
+                  String response = "", temp;
+                  BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+
+                  while((temp = bufferedReader.readLine()) != null)
+                        response += temp;
+
+                  System.out.println("response = " + response);
+            } catch (Exception e) {
+                  e.printStackTrace();
+                  return;
             }
-      }
-
-      private Notification generateMessage(StockCall stockCall, String condition) {
-            return new Notification(stockCall.getStockInfo().getName() + "'s " + stockCall.getCallType().getName() + " CALL COMPLETED",
-                    "The call posted on " + stockCall.getCreatedAt() + " has been completed since " + condition);
-      }
-
-
-      private void callCompleted(final StockCall stockCall,
-                                 final String condition) {
-            StockCall updatedStockCall = this.stockCallService.setCompleted(stockCall);
-            this.callUpdated(updatedStockCall);
-            Notification notification = this.generateMessage(stockCall, condition);
-            this.commodityController.notifyCallCompleted(notification);
-      }
-
-
-      private void callUpdated(final StockCall stockCall) {
-            this.commodityController.callUpdated(stockCall);
       }
 }

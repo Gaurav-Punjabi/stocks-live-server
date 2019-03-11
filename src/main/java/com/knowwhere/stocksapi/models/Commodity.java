@@ -24,13 +24,12 @@ public class Commodity {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Commodity commodity = (Commodity) o;
-            return Objects.equals(name, commodity.name) &&
-                    Objects.equals(price, commodity.price);
+            return Objects.equals(name, commodity.name);
       }
 
       @Override
       public int hashCode() {
-            return Objects.hash(name, price);
+            return Objects.hash(name);
       }
 
       @Override

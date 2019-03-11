@@ -9,6 +9,7 @@ import com.knowwhere.stocksapi.repositories.StockCallRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ public class StockCallService {
             return this.stockCallRepository.save(stockCall);
       }
 
-      public List<StockCall> getAllByStockId(int id) {
+      public List<StockCall> getAllByStockInfo(int id) {
             return this.stockCallRepository.getAllByStockInfo(id);
       }
 
@@ -54,7 +55,11 @@ public class StockCallService {
             Optional<CallType> optionalCallType = this.callTypeService.getByName(type);
             if (optionalCallType.isPresent()) {
                   CallType callType = optionalCallType.get();
+                  System.out.println("callType = " + callType);
                   StockCall stockCall = new StockCall(stockInfo, callType, currentPrice, stopLoss, target1, target2, target3);
+                  System.out.println("stockCall = " + stockCall);
+                  stockCall.setCreatedAt(new Date());
+                  System.out.println("stockCall = " + stockCall);
                   return this.stockCallRepository.save(stockCall);
             }
             return null;

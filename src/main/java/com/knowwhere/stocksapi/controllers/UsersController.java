@@ -2,13 +2,11 @@ package com.knowwhere.stocksapi.controllers;
 
 import com.knowwhere.stocksapi.exceptions.NonUniqueFieldException;
 import com.knowwhere.stocksapi.models.Users;
+import com.knowwhere.stocksapi.services.NotificationService;
 import com.knowwhere.stocksapi.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 
@@ -18,6 +16,8 @@ public class UsersController {
 
       @Autowired
       private UsersService usersService;
+      @Autowired
+      private NotificationService notificationService;
 
       /**
        * Endpoint for registration of admin.
@@ -64,7 +64,18 @@ public class UsersController {
       @PostMapping("pushToken")
       public ResponseEntity<?> pushToken(@RequestBody PushTokenModel pushTokenModel) {
             System.out.println("pushTokenModel = " + pushTokenModel);
-            return ResponseEntity.noContent().build();
+            String token = pushTokenModel.token.value;
+            String phoneNumber = pushTokenModel.user.username;
+
+            this.usersService.pushToken(phoneNumber, token);
+
+            return ResponseEntity.ok("{}");
+      }
+
+      @GetMapping("/test")
+      public ResponseEntity<?> test() {
+            this.notificationService.pushNotificationToAll("Hello World", "Call Placed");
+            return ResponseEntity.ok(null);
       }
 
       static class RegisterModel {
@@ -103,30 +114,39 @@ public class UsersController {
             }
       }
 
-      class PushTokenModel {
+      static class PushTokenModel {
             private Token token;
             private User user;
 
-            class Token {
-                  private String token;
+            public PushTokenModel() {}
 
-                  public String getToken() {
-                        return token;
+            static class Token {
+                  private String value;
+                  public Token() {}
+
+                  public Token(String value) {
+                        this.value = value;
                   }
 
-                  public void setToken(String token) {
-                        this.token = token;
+                  public String getValue() {
+                        return value;
+                  }
+
+                  public void setValue(String value) {
+                        this.value = value;
                   }
 
                   @Override
                   public String toString() {
                         return "Token{" +
-                                "token='" + token + '\'' +
+                                "value='" + value + '\'' +
                                 '}';
                   }
             }
-            class User {
+            static class User {
                   private String username;
+
+                  public User() {}
 
                   public User(String username) {
                         this.username = username;
@@ -170,7 +190,7 @@ public class UsersController {
             @Override
             public String toString() {
                   return "PushTokenModel{" +
-                          "token=" + token +
+                          "value=" + token +
                           ", user=" + user +
                           '}';
             }

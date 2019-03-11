@@ -1,11 +1,11 @@
 package com.knowwhere.stocksapi.models.stock_call;
 
 public class StockCallResponse {
-      private String name, type;
+      private String name, type, date;
       private Double price, target1, target2, target3, stopLoss;
       private boolean status;
 
-      public StockCallResponse(String name, String type, Double price, Double target1, Double target2, Double target3, Double stopLoss, boolean status) {
+      public StockCallResponse(String name, String type, Double price, Double target1, Double target2, Double target3, Double stopLoss, String date, boolean status) {
             this.name = name;
             this.type = type;
             this.price = price;
@@ -13,11 +13,20 @@ public class StockCallResponse {
             this.target2 = target2;
             this.target3 = target3;
             this.stopLoss = stopLoss;
+            this.date = date;
             this.status = status;
       }
 
 
       public StockCallResponse() {
+      }
+
+      public String getDate() {
+            return date;
+      }
+
+      public void setDate(String date) {
+            this.date = date;
       }
 
       public String getName() {

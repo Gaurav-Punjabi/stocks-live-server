@@ -9,6 +9,7 @@ import com.knowwhere.stocksapi.models.StockType;
 import com.knowwhere.stocksapi.models.stock_call.CallWrapper;
 import com.knowwhere.stocksapi.models.stock_call.StockCallResponse;
 import com.knowwhere.stocksapi.services.CommodityService;
+import com.knowwhere.stocksapi.services.NotificationService;
 import com.knowwhere.stocksapi.services.StockCallService;
 import com.knowwhere.stocksapi.services.StockInfoService;
 import jdk.nashorn.internal.codegen.CompilerConstants;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
@@ -31,6 +33,9 @@ public class StockCallController {
 
       @Autowired
       private StockCallService stockCallService;
+
+      @Autowired
+      private NotificationService notificationService;
 
       @GetMapping("/getAll")
       public ResponseEntity<?> getAll() {
@@ -48,6 +53,7 @@ public class StockCallController {
                           stockCall.isCompleted());
                   stockCallResponses.add(stockCallResponse);
             }
+            Collections.reverse(stockCallResponses);
             return ResponseEntity.ok(stockCallResponses);
       }
 
@@ -65,6 +71,11 @@ public class StockCallController {
                           (callWrapper.getTarget1() == null) ? 0 : callWrapper.getTarget1(),
                           (callWrapper.getTarget2() == null) ? 0 : callWrapper.getTarget2(),
                           (callWrapper.getTarget3() == null) ? 0 : callWrapper.getTarget3());
+
+                  String title = "Stock call for " + callWrapper.getName() + " added.";
+                  String message = "A stock call for " + callWrapper.getName() + " is added with a stop loss of " + callWrapper.getStopLoss();
+                  this.notificationService.pushNotificationToAll(title, message);
+
                   System.out.println("stockCall added = " + stockCall);
                   return ResponseEntity.ok(stockCall);
             } catch (FieldNotFoundException fnfe) {

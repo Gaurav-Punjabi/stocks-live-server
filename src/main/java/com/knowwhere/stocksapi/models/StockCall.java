@@ -8,8 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "StockCall")
-public class StockCall
-        extends BaseModel {
+public class StockCall extends BaseModel implements Comparable<String>{
       @Id
       @GeneratedValue
       @Column(name = "id")
@@ -53,6 +52,7 @@ public class StockCall
                        double target3) {
             this.stockInfo = stockInfo;
             this.price = price;
+            this.callType = callType;
             this.stopLoss = stopLoss;
             this.target1 = target1;
             this.target2 = target2;
@@ -132,6 +132,11 @@ public class StockCall
 
       public boolean isCompleted() {
             return completed;
+      }
+
+      @Override
+      public int compareTo(String commodityName) {
+            return this.getStockInfo().getName().compareTo(commodityName);
       }
 
       @Override
