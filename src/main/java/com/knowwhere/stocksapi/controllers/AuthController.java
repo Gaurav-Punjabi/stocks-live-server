@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping(BASE_URL + "/auth/")
 public class AuthController {
       @Autowired

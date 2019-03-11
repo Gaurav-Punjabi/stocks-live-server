@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(BASE_URL + "/users/")
 public class UsersController {
 
