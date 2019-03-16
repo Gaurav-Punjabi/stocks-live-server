@@ -85,8 +85,8 @@ public class UsersService {
             return this.store(name, email, password, phoneNumber, false);
       }
 
-      public void pushToken(String phoneNumber, String token) {
-            Users users = this.usersRepository.findByPhoneNumber(phoneNumber).orElse(null);
+      public void pushToken(String email, String token) {
+            Users users = this.usersRepository.findByEmail(email).orElse(null);
             if(users != null) {
                   users.setNotificationToken(token);
                   this.usersRepository.save(users);

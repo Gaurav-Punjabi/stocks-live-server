@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb4b45e3-b390-454d-9d67-639aea387ca7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/AppUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/DataTableColumnSpecs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/DataTableRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/DataTableResults.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/FilterBy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/PaginationCriteria.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/ProductWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/SortBy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/SortOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/stock_call/CallTableWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/users/UsersTableWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/CommodityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/CommodityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel$Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel$Token.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel$User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel$User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$PushTokenModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$RegisterModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController$RegisterModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/controllers/UsersController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/models/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/models/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/services/CommodityService$CommodityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/services/CommodityService$CommodityListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/services/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/knowwhere/stocksapi/services/UsersService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -154,7 +128,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11364" />
+          <entry key="JAVA" value="11390" />
           <entry key="PLAIN_TEXT" value="269" />
           <entry key="Properties" value="9" />
           <entry key="SQL" value="131" />
@@ -164,7 +138,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="116" />
+          <entry key="JAVA" value="119" />
           <entry key="Properties" value="6" />
           <entry key="Scratch" value="1" />
         </counts>
@@ -176,19 +150,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="-439">
+              <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/CommodityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="96" selection-start-line="96" selection-end-line="96" />
+            <state relative-caret-position="337">
+              <caret line="91" column="51" lean-forward="true" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4657#4658#0" expanded="true" />
                 <element signature="e#4716#4717#0" expanded="true" />
               </folding>
             </state>
@@ -198,17 +191,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/NotificationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="40" column="53" lean-forward="true" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="112" lean-forward="true" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="112" />
+            <state relative-caret-position="440">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -225,7 +209,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="45">
               <caret line="44" column="57" lean-forward="true" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
             </state>
           </provider>
@@ -240,11 +224,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+            <state relative-caret-position="569">
+              <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/StockCallService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-87">
+              <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -328,13 +321,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/datatables/SortBy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/users/UsersTableWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/Users.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/stock_call/CallTableWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/CommodityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java" />
       </list>
     </option>
   </component>
@@ -488,7 +481,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552730011162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552749738133" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -575,7 +568,7 @@
       <workItem from="1552230705589" duration="24063000" />
       <workItem from="1552392132422" duration="1125000" />
       <workItem from="1552517697452" duration="317000" />
-      <workItem from="1552664187609" duration="5996000" />
+      <workItem from="1552664187609" duration="6449000" />
     </task>
     <task id="LOCAL-00001" summary="Added SQL File">
       <created>1552162754995</created>
@@ -637,7 +630,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54365000" />
+    <option name="totallyTimeSpent" value="54818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -652,7 +645,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21101573" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21101573" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -926,31 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/StockCallService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/BaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/CommodityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1045,31 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4716#4717#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/NotificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="40" column="53" lean-forward="true" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1084,13 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="44" column="57" lean-forward="true" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/models/users/UsersTableWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -1098,10 +1038,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/StockCallService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/NotificationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="44" column="57" lean-forward="true" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/CommodityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockCallController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-439">
+          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/StockInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/controllers/UsersController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        <state relative-caret-position="569">
+          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/knowwhere/stocksapi/services/UsersService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="91" column="51" lean-forward="true" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4657#4658#0" expanded="true" />
+            <element signature="e#4716#4717#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
