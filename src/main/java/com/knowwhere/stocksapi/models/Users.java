@@ -11,6 +11,9 @@ public class Users extends BaseModel {
       @Column(name = "id")
       private int id;
 
+      @Column(name = "name")
+      private String name;
+
       @Column(name = "email")
       private String email;
 
@@ -36,14 +39,23 @@ public class Users extends BaseModel {
       private boolean isAdmin;
 
 
-      public Users(String email, String password, String phoneNumber, boolean isAdmin) {
+      public Users(String name, String email, String password, String phoneNumber, boolean isAdmin) {
+            this.name = name;
             this.email = email;
             this.password = password;
-            this.isAdmin = isAdmin;
             this.phoneNumber = phoneNumber;
+            this.isAdmin = isAdmin;
       }
 
       public Users() {}
+
+      public String getName() {
+            return name;
+      }
+
+      public void setName(String name) {
+            this.name = name;
+      }
 
       public boolean isAdmin() {
             return isAdmin;

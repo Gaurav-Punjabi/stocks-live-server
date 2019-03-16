@@ -54,6 +54,7 @@ public class CommodityService {
                               oldCommodities.addAll(commodities);
                               updatedCommodities.addAll(commodities);
 
+
                               oldCommodities.retainAll(this.commoditySet);
                               updatedCommodities.removeAll(oldCommodities);
 

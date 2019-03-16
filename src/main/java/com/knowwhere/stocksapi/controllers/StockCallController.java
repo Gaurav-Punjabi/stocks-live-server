@@ -61,6 +61,7 @@ public class StockCallController {
 
       @PostMapping("/add")
       public ResponseEntity<?> add(@RequestBody CallWrapper callWrapper) {
+            System.out.println("callWrapper = " + callWrapper);
             if (callWrapper.getTarget1() == null && callWrapper.getTarget2() == null && callWrapper.getTarget3() == null) {
                   return ResponseEntity.unprocessableEntity()
                           .body("At least one target must be provided to add a stock call");

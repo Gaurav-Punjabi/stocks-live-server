@@ -46,7 +46,7 @@ public class AuthController {
 
             try {
                   if(this.authService.login(email, password))
-                        return ResponseEntity.accepted().body("User Verified");
+                        return ResponseEntity.ok("User Verified");
                   return ResponseEntity.ok("User Authentication Failed");
             } catch (Exception e) {
                   return ResponseEntity.unprocessableEntity().body(e.getMessage());

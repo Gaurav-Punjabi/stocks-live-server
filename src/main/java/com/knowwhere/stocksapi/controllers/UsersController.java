@@ -1,12 +1,21 @@
 package com.knowwhere.stocksapi.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.gson.Gson;
 import com.knowwhere.stocksapi.exceptions.NonUniqueFieldException;
 import com.knowwhere.stocksapi.models.Users;
+import com.knowwhere.stocksapi.models.datatables.DataTableRequest;
+import com.knowwhere.stocksapi.models.datatables.DataTableResults;
+import com.knowwhere.stocksapi.models.users.UsersTableWrapper;
 import com.knowwhere.stocksapi.services.NotificationService;
 import com.knowwhere.stocksapi.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 
@@ -32,7 +41,7 @@ public class UsersController {
             String phoneNumber = registerModel.getPhoneNumber();
 
             try {
-                  Users users = this.usersService.registerAdmin(email, password, phoneNumber);
+                  Users users = this.usersService.registerAdmin(registerModel.name, email, password, phoneNumber);
                   return ResponseEntity.ok(users);
             } catch (IllegalArgumentException iae) {
                   return ResponseEntity.unprocessableEntity().body(iae.getMessage());
@@ -48,7 +57,7 @@ public class UsersController {
             String phoneNumber = registerModel.getPhoneNumber();
 
             try {
-                  Users users = this.usersService.registerUser(email, password, phoneNumber);
+                  Users users = this.usersService.registerUser(registerModel.name, email, password, phoneNumber);
                   return ResponseEntity.ok(users);
             } catch (IllegalArgumentException iae) {
                   return ResponseEntity.unprocessableEntity().body(iae.getMessage());
@@ -79,15 +88,27 @@ public class UsersController {
             return ResponseEntity.ok(null);
       }
 
+      @RequestMapping(value = "/getUsersTable", method = RequestMethod.GET)
+      @ResponseBody
+      public ResponseEntity<?> getWarehouses(HttpServletRequest request,
+                                             HttpServletResponse response,
+                                             Model model) throws JsonProcessingException {
+            DataTableRequest<UsersTableWrapper> dataTableInRQ = new DataTableRequest<>(request);
+            DataTableResults<UsersTableWrapper> dataTableResults = this.usersService.getUsersTable(dataTableInRQ);
+            return ResponseEntity.ok(new Gson().toJson(dataTableResults));
+      }
+
       static class RegisterModel {
-            private String email, phoneNumber, password;
+            private String name, email, phoneNumber, password;
 
             public RegisterModel() {}
 
-            public RegisterModel(String email, String phoneNumber, String password) {
-                  this.email = email;
-                  this.phoneNumber = phoneNumber;
-                  this.password = password;
+            public String getName() {
+                  return name;
+            }
+
+            public void setName(String name) {
+                  this.name = name;
             }
 
             public String getEmail() {
