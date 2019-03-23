@@ -15,5 +15,4 @@ import static com.knowwhere.stocksapi.constants.ControllerConstants.BASE_URL;
 public class StockInfoController {
       @Autowired
       private StockInfoService stockInfoService;
-
 }
