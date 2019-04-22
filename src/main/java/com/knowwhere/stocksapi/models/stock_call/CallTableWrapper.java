@@ -1,22 +1,44 @@
 package com.knowwhere.stocksapi.models.stock_call;
 
 public class CallTableWrapper {
-      private String type, name, price, callPrice, target1, target2, target3, stopLost, placedOn;
+      private int id;
+      private String type, name, placedOn;
+      private double price, stopLoss, target1, target2, target3;
 
-      public CallTableWrapper(String type, String name, String price, String callPrice, String target1, String target2, String target3, String stopLost, String placedOn) {
-            this.type = type;
+      public CallTableWrapper(int id,
+                              String type,
+                              String name,
+                              String placedOn,
+                              double price,
+                              double stopLoss,
+                              double target1,
+                              double target2,
+                              double target3) {
+            this.id = id;
+            this.type = (type.equals("BUY")) ? "<span class=\"label label-primary\"> BUY </span>" : "<span class=\"label label-success\"> SELL </span>";
             this.name = name;
+            this.placedOn = placedOn;
             this.price = price;
-            this.callPrice = callPrice;
+            this.stopLoss = stopLoss;
             this.target1 = target1;
             this.target2 = target2;
             this.target3 = target3;
-            this.stopLost = stopLost;
-            this.placedOn = placedOn;
+      }
+
+      public int getId() {
+            return id;
+      }
+
+      public void setId(int id) {
+            this.id = id;
       }
 
       public String getType() {
             return type;
+      }
+
+      public void setType(String type) {
+            this.type = type;
       }
 
       public String getName() {
@@ -27,59 +49,51 @@ public class CallTableWrapper {
             this.name = name;
       }
 
-      public String getPrice() {
-            return price;
-      }
-
-      public void setPrice(String price) {
-            this.price = price;
-      }
-
-      public String getCallPrice() {
-            return callPrice;
-      }
-
-      public void setCallPrice(String callPrice) {
-            this.callPrice = callPrice;
-      }
-
-      public String getTarget1() {
-            return target1;
-      }
-
-      public void setTarget1(String target1) {
-            this.target1 = target1;
-      }
-
-      public String getTarget2() {
-            return target2;
-      }
-
-      public void setTarget2(String target2) {
-            this.target2 = target2;
-      }
-
-      public String getTarget3() {
-            return target3;
-      }
-
-      public void setTarget3(String target3) {
-            this.target3 = target3;
-      }
-
-      public String getStopLost() {
-            return stopLost;
-      }
-
-      public void setStopLost(String stopLost) {
-            this.stopLost = stopLost;
-      }
-
       public String getPlacedOn() {
             return placedOn;
       }
 
       public void setPlacedOn(String placedOn) {
             this.placedOn = placedOn;
+      }
+
+      public double getPrice() {
+            return price;
+      }
+
+      public void setPrice(double price) {
+            this.price = price;
+      }
+
+      public double getStopLoss() {
+            return stopLoss;
+      }
+
+      public void setStopLoss(double stopLoss) {
+            this.stopLoss = stopLoss;
+      }
+
+      public double getTarget1() {
+            return target1;
+      }
+
+      public void setTarget1(double target1) {
+            this.target1 = target1;
+      }
+
+      public double getTarget2() {
+            return target2;
+      }
+
+      public void setTarget2(double target2) {
+            this.target2 = target2;
+      }
+
+      public double getTarget3() {
+            return target3;
+      }
+
+      public void setTarget3(double target3) {
+            this.target3 = target3;
       }
 }

@@ -1,5 +1,6 @@
 package com.knowwhere.stocksapi.services;
 
+import com.knowwhere.stocksapi.exceptions.FieldNotFoundException;
 import com.knowwhere.stocksapi.exceptions.NonUniqueFieldException;
 import com.knowwhere.stocksapi.models.Users;
 import com.knowwhere.stocksapi.models.datatables.DataTableRequest;
@@ -71,6 +72,53 @@ public class UsersService {
             }
       }
 
+      /**
+       * A method to edit a user into the database
+       * @param email Email ID of the user
+       * @param phoneNumber Phone number of the user (Must be 10 digits long)
+       * @return Object of the User that has been inserted
+       * @throws IllegalArgumentException If any of the argument is invalid or null
+       * @throws NonUniqueFieldException If any of the given argument is not unique in the database
+       */
+      public Users update(int id,
+                          String name,
+                          String email,
+                          String phoneNumber) throws IllegalArgumentException, NonUniqueFieldException, FieldNotFoundException {
+            // Validating the input fields
+            if(name == null) {
+                  throw new IllegalArgumentException("Please provide a name");
+            }
+            if(email == null) {
+                  throw new IllegalArgumentException("Please provide a email id.");
+            } else if(phoneNumber == null || !(phoneNumber.matches("^\\d{10}$"))) {
+                  throw new IllegalArgumentException("Please provide a valid phoneNumber");
+            } else if(!email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-\\+]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+                  throw new IllegalArgumentException("Not a valid email");
+            } else if(phoneNumber.length() != 10) {
+                  throw new IllegalArgumentException("Phone Number is not valid");
+            } else if(this.usersRepository.findByEmail(email).isPresent() && this.usersRepository.findByEmail(email).orElse(null).getId() != id) {
+                  throw new NonUniqueFieldException("Given email already exists");
+            } else if(this.usersRepository.findByPhoneNumber(phoneNumber).isPresent() && this.usersRepository.findByPhoneNumber(phoneNumber).orElse(null).getId() != id) {
+                  throw new NonUniqueFieldException("Given phone number already exists");
+            }
+
+            Users user = this.getById(id);
+            user.setName(name);
+            user.setPhoneNumber(phoneNumber);
+            user.setEmail(email);
+
+            this.usersRepository.save(user);
+
+            return user;
+      }
+
+      public void destroy(int id) throws FieldNotFoundException {
+            Users user = this.getById(id);
+
+            user.setDeleted(true);
+            this.usersRepository.save(user);
+      }
+
       public Users registerAdmin(String name,
                                  String email,
                                  String password,
@@ -97,13 +145,20 @@ public class UsersService {
             return this.usersRepository.findAll();
       }
 
+      public Users getById(int id) throws FieldNotFoundException {
+            Users user = this.usersRepository.findById(id).orElse(null);
+            if(user != null)
+                  return user;
+            throw new FieldNotFoundException("No user with id " + id + " found.");
+      }
 
-      public List<UsersTableWrapper> getCategories(final int start,
-                                                   final int length,
-                                                   final String columnName,
-                                                   final String sortDirection,
-                                                   final String search) {
-            String query = String.format("SELECT * FROM Users WHERE Users.name like' %%%s%%' OR Users.email like '%%%s%%' OR Users.phone_number like '%%%s%%' ORDER BY %s %s LIMIT %s, %s", search, search, search, columnName, sortDirection, start, length);
+
+      public List<UsersTableWrapper> getUsers(final int start,
+                                              final int length,
+                                              final String columnName,
+                                              final String sortDirection,
+                                              final String search) {
+            String query = String.format("SELECT * FROM Users WHERE Users.deleted = 0 and (Users.name like' %%%s%%' OR Users.email like '%%%s%%' OR Users.phone_number like '%%%s%%') ORDER BY %s %s LIMIT %s, %s", search, search, search, columnName, sortDirection, start, length);
             System.out.println("query = " + query);
             List<Map<String, Object>> result = this.jdbcTemplate.queryForList(query);
             List<UsersTableWrapper> usersTableWrappers = this.getUsersFromResult(result);
@@ -117,7 +172,7 @@ public class UsersService {
                   String name = (String) row.get("name");
                   String email = (String) row.get("email");
                   String phoneNumber = (String) row.get("phone_number");
-                  categoryTableWrappers.add(new UsersTableWrapper(name, email, phoneNumber));
+                  categoryTableWrappers.add(new UsersTableWrapper(id, name, email, phoneNumber));
             }
 
             return categoryTableWrappers;
@@ -132,7 +187,7 @@ public class UsersService {
                         break;
 
                   case "phoneNumber" :
-                        columnName = "phoneNumber";
+                        columnName = "phone_number";
                         break;
 
                   case "email" :
@@ -144,7 +199,7 @@ public class UsersService {
             }
 
             DataTableResults<UsersTableWrapper> dataTableResults = new DataTableResults<>();
-            List<UsersTableWrapper> categoryTableWrappers = this.getCategories(dataTableRequest.getStart(), dataTableRequest.getLength(), columnName, direction, dataTableRequest.getSearch());
+            List<UsersTableWrapper> categoryTableWrappers = this.getUsers(dataTableRequest.getStart(), dataTableRequest.getLength(), columnName, direction, dataTableRequest.getSearch());
 
             dataTableResults.setDraw(dataTableRequest.getDraw());
             dataTableResults.setListOfDataObjects(categoryTableWrappers);

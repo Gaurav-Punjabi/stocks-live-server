@@ -1,0 +1,486 @@
+@startuml
+
+title __STOCKSAPI's Class Diagram__\n
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class AppUtil {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.controllers {
+      class AuthController {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class AuthService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class BaseModel {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.stock_call {
+        class CallTableWrapper {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class CallType {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.constants {
+      class CallTypeConstants {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.repositories {
+      interface CallTypeRepository {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class CallTypeService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.stock_call {
+        class CallWrapper {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class Commodity {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.controllers {
+      class CommodityController {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class CommodityService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.constants {
+      interface ControllerConstants {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableColumnSpecs {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableRequest {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableResults {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class EditableTableWrapper {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.exceptions {
+      class FieldNotFoundException {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class FilterBy {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class HashService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class MessageService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.exceptions {
+      class NonUniqueFieldException {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class Notification {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class NotificationService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class PaginationCriteria {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class ProductWrapper {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.notification {
+        class PushNotification {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.config {
+      class SentryConfig {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class SortBy {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        enum SortOrder {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class StockCall {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.controllers {
+      class StockCallController {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.repositories {
+      interface StockCallRepository {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.stock_call {
+        class StockCallResponse {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class StockCallService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class StockInfo {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.controllers {
+      class StockInfoController {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.repositories {
+      interface StockInfoRepository {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class StockInfoService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class StockType {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.repositories {
+      interface StockTypeRepository {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class StockTypeService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    class StocksApiApplication {
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      class Users {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.controllers {
+      class UsersController {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.repositories {
+      interface UsersRepository {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class UsersService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.users {
+        class UsersTableWrapper {
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.services {
+      class WebScrapperService {
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.config {
+      class WebSocketConfig {
+      }
+    }
+  }
+  
+
+  AuthController o-- AuthService : authService
+  AuthService o-- UsersService : usersService
+  AuthService o-- UsersRepository : usersRepository
+  AuthService o-- MessageService : messageService
+  AuthService o-- HashService : hashService
+  CallTypeService o-- CallTypeRepository : callTypeRepository
+  CommodityController o-- CommodityService : commodityService
+  CommodityController o-- StockCallService : stockCallService
+  CommodityService o-- WebScrapperService : webScrapperService
+  CommodityService o-- StockCallService : stockCallService
+  CommodityService o-- NotificationService : notificationService
+  DataTableRequest o-- DataTableColumnSpecs : order
+  NotificationService o-- UsersService : usersService
+  PaginationCriteria o-- SortBy : sortBy
+  PaginationCriteria o-- FilterBy : filterBy
+  StockCall -up-|> Comparable
+  StockCall -up-|> BaseModel
+  StockCall o-- StockInfo : stockInfo
+  StockCall o-- CallType : callType
+  StockCallController o-- StockCallService : stockCallService
+  StockCallController o-- NotificationService : notificationService
+  StockCallService o-- StockCallRepository : stockCallRepository
+  StockCallService o-- StockInfoService : stockInfoService
+  StockCallService o-- CallTypeService : callTypeService
+  StockInfo o-- StockType : stockType
+  StockInfoController o-- StockInfoService : stockInfoService
+  StockInfoService o-- StockInfoRepository : stockInfoRepository
+  StockInfoService o-- StockTypeService : stockTypeService
+  StockTypeService o-- StockTypeRepository : stockTypeRepository
+  Users -up-|> BaseModel
+  UsersController o-- UsersService : usersService
+  UsersController o-- NotificationService : notificationService
+  UsersService o-- UsersRepository : usersRepository
+  UsersService o-- HashService : hashService
+  UsersTableWrapper -up-|> EditableTableWrapper
+  WebSocketConfig -up-|> WebSocketMessageBrokerConfigurer
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

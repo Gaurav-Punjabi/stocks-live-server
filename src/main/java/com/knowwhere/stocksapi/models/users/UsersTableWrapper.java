@@ -1,9 +1,13 @@
 package com.knowwhere.stocksapi.models.users;
 
-public class UsersTableWrapper {
+import com.knowwhere.stocksapi.models.datatables.EditableTableWrapper;
+
+public class UsersTableWrapper extends EditableTableWrapper  {
       private String name, email, phoneNumber;
 
-      public UsersTableWrapper(String name, String email, String phoneNumber) {
+      public UsersTableWrapper(int id, String name, String email, String phoneNumber) {
+            super(id);
+
             this.name = name;
             this.email = email;
             this.phoneNumber = phoneNumber;

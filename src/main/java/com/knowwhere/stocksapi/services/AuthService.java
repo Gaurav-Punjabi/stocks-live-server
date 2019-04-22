@@ -3,7 +3,6 @@ package com.knowwhere.stocksapi.services;
 import com.knowwhere.stocksapi.exceptions.FieldNotFoundException;
 import com.knowwhere.stocksapi.models.Users;
 import com.knowwhere.stocksapi.repositories.UsersRepository;
-import com.sun.javafx.tools.packager.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

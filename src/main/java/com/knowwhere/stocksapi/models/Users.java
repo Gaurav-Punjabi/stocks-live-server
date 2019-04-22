@@ -38,6 +38,9 @@ public class Users extends BaseModel {
       @Column(name = "is_admin")
       private boolean isAdmin;
 
+      @Column(name = "deleted")
+      private boolean deleted;
+
 
       public Users(String name, String email, String password, String phoneNumber, boolean isAdmin) {
             this.name = name;
@@ -127,6 +130,14 @@ public class Users extends BaseModel {
 
       public void setOtp(String otp) {
             this.otp = otp;
+      }
+
+      public boolean isDeleted() {
+            return deleted;
+      }
+
+      public void setDeleted(boolean deleted) {
+            this.deleted = deleted;
       }
 
       @Override

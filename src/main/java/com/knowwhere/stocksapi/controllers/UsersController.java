@@ -2,6 +2,7 @@ package com.knowwhere.stocksapi.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
+import com.knowwhere.stocksapi.exceptions.FieldNotFoundException;
 import com.knowwhere.stocksapi.exceptions.NonUniqueFieldException;
 import com.knowwhere.stocksapi.models.Users;
 import com.knowwhere.stocksapi.models.datatables.DataTableRequest;
@@ -9,6 +10,7 @@ import com.knowwhere.stocksapi.models.datatables.DataTableResults;
 import com.knowwhere.stocksapi.models.users.UsersTableWrapper;
 import com.knowwhere.stocksapi.services.NotificationService;
 import com.knowwhere.stocksapi.services.UsersService;
+import io.sentry.event.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -63,6 +65,41 @@ public class UsersController {
                   return ResponseEntity.unprocessableEntity().body(iae.getMessage());
             } catch (NonUniqueFieldException nufe) {
                   return ResponseEntity.status(409).body(nufe.getMessage());
+            }
+      }
+
+      @PutMapping("{id}")
+      public ResponseEntity<?> edit(@PathVariable("id") int id,
+                                    @RequestBody EditModel editModel) {
+            try {
+                  Users user = this.usersService.update(id, editModel.name, editModel.email, editModel.phoneNumber);
+                  return ResponseEntity.ok(user);
+            } catch (FieldNotFoundException fnfe) {
+                  return ResponseEntity.notFound().build();
+            } catch (IllegalArgumentException iae) {
+                  return ResponseEntity.unprocessableEntity().body(iae.getMessage());
+            } catch (NonUniqueFieldException nufe) {
+                  return ResponseEntity.status(409).body(nufe.getMessage());
+            }
+      }
+
+      @DeleteMapping("{id}")
+      public ResponseEntity<?> destroy(@PathVariable("id") int id) {
+            try {
+                  this.usersService.destroy(id);
+                  return ResponseEntity.ok("Deleted");
+            } catch (FieldNotFoundException fnfe) {
+                  return ResponseEntity.notFound().build();
+            }
+      }
+
+      @GetMapping("{id}")
+      public ResponseEntity<?> getById(@PathVariable("id") int id) {
+            try {
+                  Users user = this.usersService.getById(id);
+                  return ResponseEntity.ok(user);
+            } catch (FieldNotFoundException fnfe) {
+                  return ResponseEntity.notFound().build();
             }
       }
 
@@ -133,6 +170,36 @@ public class UsersController {
 
             public void setPassword(String password) {
                   this.password = password;
+            }
+      }
+
+      static class EditModel {
+            private String email, name, phoneNumber;
+
+            public EditModel() {}
+
+            public String getEmail() {
+                  return email;
+            }
+
+            public void setEmail(String email) {
+                  this.email = email;
+            }
+
+            public String getName() {
+                  return name;
+            }
+
+            public void setName(String name) {
+                  this.name = name;
+            }
+
+            public String getPhoneNumber() {
+                  return phoneNumber;
+            }
+
+            public void setPhoneNumber(String phoneNumber) {
+                  this.phoneNumber = phoneNumber;
             }
       }
 

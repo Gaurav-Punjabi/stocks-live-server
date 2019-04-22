@@ -10,4 +10,6 @@ public interface StockCallRepository
       List<StockCall> getAllByCallType(int typeId);
 
       List<StockCall> getAllByStockInfo(int id);
+
+      List<StockCall> getAllByCompleted(boolean completed);
 }

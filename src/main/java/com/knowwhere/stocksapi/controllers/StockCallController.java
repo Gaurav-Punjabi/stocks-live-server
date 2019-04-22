@@ -1,25 +1,24 @@
 package com.knowwhere.stocksapi.controllers;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.gson.Gson;
 import com.knowwhere.stocksapi.exceptions.FieldNotFoundException;
 import com.knowwhere.stocksapi.models.StockCall;
-import com.knowwhere.stocksapi.models.StockInfo;
-import com.knowwhere.stocksapi.models.StockType;
+import com.knowwhere.stocksapi.models.datatables.DataTableRequest;
+import com.knowwhere.stocksapi.models.datatables.DataTableResults;
+import com.knowwhere.stocksapi.models.stock_call.CallTableWrapper;
 import com.knowwhere.stocksapi.models.stock_call.CallWrapper;
 import com.knowwhere.stocksapi.models.stock_call.StockCallResponse;
-import com.knowwhere.stocksapi.services.CommodityService;
+import com.knowwhere.stocksapi.models.users.UsersTableWrapper;
 import com.knowwhere.stocksapi.services.NotificationService;
 import com.knowwhere.stocksapi.services.StockCallService;
-import com.knowwhere.stocksapi.services.StockInfoService;
-import jdk.nashorn.internal.codegen.CompilerConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.lang.Nullable;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,5 +83,15 @@ public class StockCallController {
             } catch (FieldNotFoundException fnfe) {
                   return ResponseEntity.noContent().build();
             }
+      }
+
+      @RequestMapping(value = "/getCallsTable", method = RequestMethod.GET)
+      @ResponseBody
+      public ResponseEntity<?> getCallsTable(HttpServletRequest request,
+                                             HttpServletResponse response,
+                                             Model model) throws JsonProcessingException {
+            DataTableRequest<CallTableWrapper> dataTableInRQ = new DataTableRequest<>(request);
+            DataTableResults<CallTableWrapper> dataTableResults = this.stockCallService.getCallsTable(dataTableInRQ);
+            return ResponseEntity.ok(new Gson().toJson(dataTableResults));
       }
 }

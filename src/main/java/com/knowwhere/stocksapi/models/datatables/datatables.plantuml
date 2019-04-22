@@ -1,0 +1,270 @@
+@startuml
+
+title __DATATABLES's Class Diagram__\n
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class AppUtil {
+            {static} - isCollectionEmpty()
+            {static} + isObjectEmpty()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableColumnSpecs {
+            - index : int
+            - data : String
+            - name : String
+            - searchable : boolean
+            - orderable : boolean
+            - search : String
+            - regex : boolean
+            - sortDir : String
+            + DataTableColumnSpecs()
+            - prepareColumnSpecs()
+            + getIndex()
+            + setIndex()
+            + getData()
+            + setData()
+            + getName()
+            + setName()
+            + isSearchable()
+            + setSearchable()
+            + isOrderable()
+            + setOrderable()
+            + getSearch()
+            + setSearch()
+            + isRegex()
+            + setRegex()
+            + getSortDir()
+            + setSortDir()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableRequest {
+            - uniqueId : String
+            - draw : String
+            - start : Integer
+            - length : Integer
+            - search : String
+            - regex : boolean
+            - columns : List<DataTableColumnSpecs>
+            - isGlobalSearch : boolean
+            - maxParamsToCheck : int
+            + DataTableRequest()
+            - prepareDataTableRequest()
+            - getNumberOfColumns()
+            + getPaginationRequest()
+            + getUniqueId()
+            + setUniqueId()
+            + getDraw()
+            + setDraw()
+            + getStart()
+            + setStart()
+            + getLength()
+            + setLength()
+            + getSearch()
+            + setSearch()
+            + isRegex()
+            + setRegex()
+            + getColumns()
+            + setColumns()
+            + getOrder()
+            + setOrder()
+            + isGlobalSearch()
+            + setGlobalSearch()
+            + getMaxParamsToCheck()
+            + setMaxParamsToCheck()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class DataTableResults {
+            - draw : String
+            - recordsFiltered : String
+            - recordsTotal : String
+            ~ listOfDataObjects : List<T>
+            + getJson()
+            + getDraw()
+            + setDraw()
+            + getRecordsFiltered()
+            + setRecordsFiltered()
+            + getRecordsTotal()
+            + setRecordsTotal()
+            + getListOfDataObjects()
+            + setListOfDataObjects()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class EditableTableWrapper {
+            - id : int
+            - edit : String
+            - delete : String
+            + EditableTableWrapper()
+            + getId()
+            + setId()
+            + getEdit()
+            + setEdit()
+            + getDelete()
+            + setDelete()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class FilterBy {
+            - mapOfFilters : Map<String, String>
+            - globalSearch : boolean
+            + FilterBy()
+            + getMapOfFilters()
+            + setMapOfFilters()
+            + addFilter()
+            + isGlobalSearch()
+            + setGlobalSearch()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class PaginationCriteria {
+            - pageNumber : Integer
+            - pageSize : Integer
+            - totalRecords : Integer
+            {static} - BLANK : String
+            {static} - SPACE : String
+            {static} - LIKE_PREFIX : String
+            {static} - LIKE_SUFFIX : String
+            {static} - AND : String
+            {static} - OR : String
+            {static} - ORDER_BY : String
+            {static} - BRKT_OPN : String
+            {static} - BRKT_CLS : String
+            {static} - COMMA : String
+            {static} + PAGE_NO : String
+            {static} + PAGE_SIZE : String
+            {static} + DRAW : String
+            + getPageNumber()
+            + setPageNumber()
+            + getPageSize()
+            + setPageSize()
+            + getTotalRecords()
+            + setTotalRecords()
+            + getSortBy()
+            + setSortBy()
+            + getFilterBy()
+            + setFilterBy()
+            + isFilterByEmpty()
+            + isSortByEmpty()
+            + getFilterByClause()
+            + getOrderByClause()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class ProductWrapper {
+            - manufacturer : String
+            - category : String
+            - subcategory : String
+            - color : String
+            - material : String
+            - size : String
+            - count : int
+            + ProductWrapper()
+            + getManufacturer()
+            + getCategory()
+            + getSubcategory()
+            + getColor()
+            + getMaterial()
+            + getCount()
+            + setManufacturer()
+            + setCategory()
+            + setSubcategory()
+            + setColor()
+            + setMaterial()
+            + setCount()
+            + getSize()
+            + setSize()
+            + toString()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        class SortBy {
+            - mapOfSorts : Map<String, SortOrder>
+            + SortBy()
+            + getSortBys()
+            + addSort()
+            + addSort()
+        }
+      }
+    }
+  }
+  
+
+  package com.knowwhere.stocksapi {
+    package com.knowwhere.stocksapi.models {
+      package com.knowwhere.stocksapi.models.datatables {
+        enum SortOrder {
+          ASC
+          DESC
+          value
+        }
+      }
+    }
+  }
+  
+
+  DataTableRequest o-- DataTableColumnSpecs : order
+  PaginationCriteria o-- SortBy : sortBy
+  PaginationCriteria o-- FilterBy : filterBy
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
